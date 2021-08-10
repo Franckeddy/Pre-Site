@@ -32,7 +32,7 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
                 illustration: fb.group({
                     image: ['',Validators.required],
                 }),
-        })
+        });
     }
 
     selectCategory(id: any) {
@@ -57,7 +57,7 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
             ...this.productForm.get('productInfos')?.value,
             ...this.productForm.get('illustration')?.value,
             category: this.idCategory
-        }
+        };
         if (this.file) {
             product.image = this.file.name;
         }
@@ -76,7 +76,7 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.categorySub = this.categoriesService.getCategory().subscribe(
-            (response)=>{
+            (response) => {
                 this.categories = response.result;
             }
         );

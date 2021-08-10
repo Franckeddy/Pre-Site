@@ -36,12 +36,12 @@ export class ProductsService {
 
     addProduct(product: Product) : Observable<Response> {
         let params = new FormData();
-        params.append('name', product.name);
-        params.append('description', product.description);
-        params.append('price', `${product.price}`);
-        params.append('stock', `${product.stock}`);
-        params.append('category', product.category);
-        params.append('image', product.image);
+        params.append("name", product.name);
+        params.append("description", product.description);
+        params.append("price", `${product.price}`);
+        params.append("stock", `${product.stock}`);
+        params.append("category", product.category);
+        params.append("image", product.image);
 
         return this.http.post<Response>(this.baseUrl, params);
     }

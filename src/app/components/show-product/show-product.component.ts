@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product';
-import { ProductsService } from 'src/app/services/products.service';
+import { Component, Input, OnInit } from "@angular/core";
+import { Product } from "src/app/models/product";
+import { ProductsService } from "src/app/services/products.service";
 
 @Component({
-    selector: 'app-show-product',
-    templateUrl: './show-product.component.html',
-    styleUrls: ['./show-product.component.scss']
+    selector: "app-show-product",
+    templateUrl: "./show-product.component.html",
+    styleUrls: ["./show-product.component.scss"]
 })
 export class ShowProductComponent implements OnInit {
 
@@ -34,13 +34,12 @@ export class ShowProductComponent implements OnInit {
 
     handleFinish(product: any) {
         if(product) {
-            console.log(product);
             if(this.selectedProduct) {
                 // Edit Product
             } else {
                 // Add Product
                 this.productsService.addProduct(product).subscribe(
-                    (data)=>{
+                    (data) => {
                         if (data.status === 200) {
                             // Update Product
                             product.idProduct = data.args.lastInsertId;

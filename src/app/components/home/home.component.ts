@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ProductsService } from 'src/app/services/products.service';
-import { Response } from 'src/app/models/response'
+import { Component, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
+import { ProductsService } from "src/app/services/products.service";
+import { Response } from "src/app/models/response";
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    selector: "app-home",
+    templateUrl: "./home.component.html",
+    styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
 
@@ -16,13 +16,12 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.productSub = this.ProductsServices.getProducts().subscribe (
-            (response: Response)=>{
+            (response: Response) => {
                 this.products = response.result;
             },
-            (error)=>{
-                console.log(error);
+            (error) => {
+                // console.log(error);
             }
         )
-    }
-
+    };
 }
