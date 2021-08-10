@@ -58,7 +58,7 @@
             <div formGroupName="illustration">
                 <clr-input-container>
                     <label for="image">Image</label>
-                    <input id="image" clrInput type="file" name="image" formControlName="image" />
+                    <input id="image" (change)="detecteFiles($event)" accepte="image/*" clrInput type="file" name="image" formControlName="image" />
                 </clr-input-container>
             </div>
             <ng-template clrPageButtons>
