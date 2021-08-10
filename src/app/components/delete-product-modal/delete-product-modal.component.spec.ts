@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { DeleteProductModalComponent } from './delete-product-modal.component';
+import { DeleteProductModalComponent } from "./delete-product-modal.component";
 
-describe('DeleteProductModalComponent', () => {
+describe("DeleteProductModalComponent", () => {
   let component: DeleteProductModalComponent;
   let fixture: ComponentFixture<DeleteProductModalComponent>;
 
@@ -19,7 +19,7 @@ describe('DeleteProductModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

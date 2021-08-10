@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AddOrEditProductModalComponent } from './add-or-edit-product-modal.component';
+import { AddOrEditProductModalComponent } from "./add-or-edit-product-modal.component";
 
-describe('AddOrEditProductModalComponent', () => {
+describe("AddOrEditProductModalComponent", () => {
   let component: AddOrEditProductModalComponent;
   let fixture: ComponentFixture<AddOrEditProductModalComponent>;
 
@@ -19,7 +19,7 @@ describe('AddOrEditProductModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

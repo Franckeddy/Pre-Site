@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { FileUploadService } from './file-upload.service';
+import { FileUploadService } from "./file-upload.service";
 
-describe('FileUploadService', () => {
-  let service: FileUploadService;
+describe("FileUploadService", () => {
+    let service: FileUploadService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(FileUploadService);
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+        service = TestBed.inject(FileUploadService);
+    });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    it("should be created", () => {
+        expect(service).toBeTruthy();
+    });
 });
