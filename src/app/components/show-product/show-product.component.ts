@@ -93,7 +93,6 @@ export class ShowProductComponent implements OnInit {
                         );
                         this.fileService.deleteImage(product.oldImage).subscribe(
                             (data: Response) => {
-                                console.log(data);
                             }
                         );
                     }
@@ -104,7 +103,6 @@ export class ShowProductComponent implements OnInit {
                         ...this.products.slice(index + 1)
                     ];
                 } else {
-                    console.log(data.message);
                 }
             }
         );
