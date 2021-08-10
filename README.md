@@ -1,4 +1,4 @@
-# PreSite
+# PreSite - [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/?branch=develop)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
 
