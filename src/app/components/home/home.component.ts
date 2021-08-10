@@ -20,8 +20,7 @@ export class HomeComponent implements OnInit {
                 this.products = response.result;
             },
             (error) => {
-                // console.log(error);
             }
         )
-    };
+    }
 }

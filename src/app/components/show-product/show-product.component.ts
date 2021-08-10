@@ -55,20 +55,18 @@ export class ShowProductComponent implements OnInit {
                                         (event: HttpEvent<any>) => {
                                             switch (event.type) {
                                                 case HttpEventType.Sent:
-                                                        console.log("Success");
                                                     break;
                                                 case HttpEventType.UploadProgress:
                                                         this.progress = Math.round(event.loaded / event.total! * 100);
                                                     break;
                                                 case HttpEventType.Response:
-                                                        console.log(event.body);
                                                 setTimeout(() => {
                                                     this.progress = 0;
                                                 }, 1500);
-                                            };
-                                        }
+                                            }
+                                        };
                                     }
-                                )
+                                );
                             }
                             product.idProduct = data.args.lastInsertId;
                             this.products.push(product);

@@ -1,16 +1,16 @@
-import { environment } from './../../environments/environment';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Response } from '../models/response';
-import { Product } from '../models/product';
+import { environment } from "./../../environments/environment";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { Response } from "../models/response";
+import { Product } from "../models/product";
 @Injectable({
-    providedIn: 'root'
+    providedIn: "root"
 })
 
 export class ProductsService {
 
-    baseUrl = `${environment.api+'api/products'+'?API_KEY='+environment.api_key}`;;
+    baseUrl = `${environment.api+"products"+"?API_KEY="+environment.api_key}`;;
 
     constructor(private http: HttpClient) { }
 

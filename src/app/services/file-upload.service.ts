@@ -4,14 +4,14 @@ import { Observable } from "rxjs";
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: "root"
 })
 
 export class FileUploadService {
 
-    private baseUrlUpload = `${environment.api+'api/uploadImage.php'+'?API_KEY='+environment.api_key}`;
+    private baseUrlUpload = `${environment.api+"uploadImage.php"+"?API_KEY="+environment.api_key}`;
 
-    private baseUrlDelete = `${environment.api+'api/deleteImage.php'+'?API_KEY='+environment.api_key}`;
+    private baseUrlDelete = `${environment.api+"deleteImage.php"+"?API_KEY="+environment.api_key}`;
 
     constructor(private http: HttpClient) { }
 

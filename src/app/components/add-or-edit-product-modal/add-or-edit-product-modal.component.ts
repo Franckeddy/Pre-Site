@@ -1,14 +1,14 @@
-import { CategoriesService } from './../../services/categories.service';
-import { Component, Input, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Product } from 'src/app/models/product';
-import { Category } from 'src/app/models/category';
-import { Subscription } from 'rxjs';
+import { CategoriesService } from "./../../services/categories.service";
+import { Component, Input, OnDestroy, OnInit, Output, EventEmitter } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Product } from "src/app/models/product";
+import { Category } from "src/app/models/category";
+import { Subscription } from "rxjs";
 
 @Component({
-    selector: 'app-add-or-edit-product-modal',
-    templateUrl: './add-or-edit-product-modal.component.html',
-    styleUrls: ['./add-or-edit-product-modal.component.scss']
+    selector: "app-add-or-edit-product-modal",
+    templateUrl: "./add-or-edit-product-modal.component.html",
+    styleUrls: ["./add-or-edit-product-modal.component.scss"]
 })
 export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
 
@@ -40,11 +40,11 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
     }
 
     get isProductInfosInvalid(): any {
-        return this.productForm.get('productInfos')?.invalid;
+        return this.productForm.get("productInfos")?.invalid;
     }
 
     get isIllustrationInvalid(): any {
-        return this.productForm.get('illustration')?.invalid;
+        return this.productForm.get("illustration")?.invalid;
     }
 
     handleCancel() {
@@ -54,8 +54,8 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
 
     handleFinish() {
         const product = {
-            ...this.productForm.get('productInfos')?.value,
-            ...this.productForm.get('illustration')?.value,
+            ...this.productForm.get("productInfos")?.value,
+            ...this.productForm.get("illustration")?.value,
             category: this.idCategory
         };
         if (this.file) {
