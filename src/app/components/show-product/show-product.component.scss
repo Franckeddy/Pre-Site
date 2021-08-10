@@ -1,1 +1,21 @@
-/* You can add styles to this file */
+.show-product {
+  .show-product-id {
+    width: 50px;
+  }
+  .show-product-name {
+    width: 100px;
+  }
+  .show-product-description {
+    width: 500px;
+  }
+  .show-product-image {
+    width: 50px;
+  }
+  clr-dg-row {
+    clr-dg-cell {
+      .show-image {
+        width: 50px;
+      }
+    }
+  }
+}

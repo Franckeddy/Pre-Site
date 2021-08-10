@@ -2,33 +2,43 @@
 <button class="btn btn-outline btn-sm" (click)="addProduct()">
     Add Product
 </button>
-
 <!-- Modal -->
 <app-add-or-edit-product-modal
     *ngIf="productModalOpen"
-    [product!] = "selectedProduct"
-    (finish) = "handleFinish($event)"
-    ></app-add-or-edit-product-modal>
+    [product] = "selectedProduct"
+    (finish) = "handleFinish($event)">
+</app-add-or-edit-product-modal>
 <!-- End Modal -->
-
-<clr-datagrid>
-    <clr-dg-column>ID</clr-dg-column>
-    <clr-dg-column>Name</clr-dg-column>
-    <clr-dg-column>Description</clr-dg-column>
-    <clr-dg-column>Price</clr-dg-column>
-    <clr-dg-column>Stock</clr-dg-column>
+<clr-datagrid class="show-product">
+    <clr-dg-column class="show-product-id">ID</clr-dg-column>
+    <clr-dg-column class="show-product-name">Name</clr-dg-column>
+    <clr-dg-column class="show-product-description">Description</clr-dg-column>
+    <clr-dg-column class="show-product-price">Price</clr-dg-column>
+    <clr-dg-column class="show-product-stock">Stock</clr-dg-column>
+    <clr-dg-column class="show-product-image">Image</clr-dg-column>
     <clr-dg-row *clrDgItems="let product of products">
-        <!-- Action -->
         <clr-dg-action-overflow>
             <button class="action-item" (click)="onEdit(product)">Edit</button>
             <button class="action-item" (click)="onDelete(product)">Delete</button>
         </clr-dg-action-overflow>
-        <!-- End Action -->
-        <clr-dg-cell>{{product.idProduct}}</clr-dg-cell>
-        <clr-dg-cell>{{product.name}}</clr-dg-cell>
-        <clr-dg-cell>{{product.description}}</clr-dg-cell>
-        <clr-dg-cell>{{product.price}}</clr-dg-cell>
-        <clr-dg-cell>{{product.stock}}</clr-dg-cell>
+        <clr-dg-cell>
+            {{product.idProduct}}
+        </clr-dg-cell>
+        <clr-dg-cell>
+            {{product.name}}
+        </clr-dg-cell>
+        <clr-dg-cell>
+            {{product.description}}
+        </clr-dg-cell>
+        <clr-dg-cell>
+            {{product.price}}
+        </clr-dg-cell>
+        <clr-dg-cell>
+            {{product.stock}} in stock
+        </clr-dg-cell>
+        <clr-dg-cell>
+            <img [src]="baseUrlImage+product.image" [alt]="product.name" class="show-image"/>
+        </clr-dg-cell>
     </clr-dg-row>
     <clr-dg-footer>
         <clr-dg-pagination #pagination [clrDgPageSize]="10">
