@@ -2,17 +2,17 @@
 
     <clr-wizard-title>{{ product ? 'Edit Product' : 'Add Product' }}</clr-wizard-title>
 
-    <clr-wizard-button [type]="'cancel'" (click)="handleCancel()">Cancel</clr-wizard-button>
+    <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
     <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
     <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
-    <clr-wizard-button [type]="'finish'" (click)="handleFinish()">Done</clr-wizard-button>
+    <clr-wizard-button [type]="'finish'" (click)="handleFinish()">Finish</clr-wizard-button>
 
     <clr-wizard-page>
         <ng-template clrPageTitle>Select Catégory</ng-template>
         <ng-template clrPageNavTitle>Step - 1</ng-template>
         <div class="clr-row category">
             <div class="clr-col-md-6" *ngFor="let category of categories">
-                <a href="javascript:void(0)" class="card clickable" (click)="selectCategory(category.idCategory)" [ngClass]="{'active': category.idCategory == idCategory}">
+                <a href="javascript:void(0)" class="card clickable" (click)="selectCategory(category.idCategory)" [ngClass]="{'active': category.idCategory === idCategory}">
                     <div class="card-block">
                         <p class="card-test">
                             {{ category.name }}
@@ -53,18 +53,18 @@
             </ng-template>
         </clr-wizard-page>
         <clr-wizard-page>
-            <ng-template clrPageTitle>Image</ng-template>
+            <ng-template clrPageTitle>Illustration</ng-template>
             <ng-template clrPageNavTitle>Step - 3</ng-template>
             <div formGroupName="illustration">
                 <clr-input-container>
                     <label for="image">Image</label>
-                    <input id="image" (change)="detecteFiles($event)" accepte="image/*" clrInput type="file" name="image" formControlName="image" />
+                    <input id="image" (change)="detecteFiles($event)" accept="image/*" clrInput type="file" name="image" formControlName="image" />
                 </clr-input-container>
             </div>
             <ng-template clrPageButtons>
                 <clr-wizard-button [type]="'cancel'" (click)="handleCancel()">Cancel</clr-wizard-button>
                 <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
-                <clr-wizard-button [type]="'finish'" [clrWizardButtonDisabled]="isIllustrationInvalid" (click)="handleFinish()">Finish</clr-wizard-button>
+                <clr-wizard-button [type]="'Finish'" [clrWizardButtonDisabled]="isIllustrationInvalid" (click)="handleFinish()">Finish</clr-wizard-button>
             </ng-template>
         </clr-wizard-page>
     </form>

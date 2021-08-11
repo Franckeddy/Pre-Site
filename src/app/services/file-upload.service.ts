@@ -9,7 +9,7 @@ import { environment } from "src/environments/environment";
 
 export class FileUploadService {
 
-    private baseUrlUpload = `${environment.api+"uploadImage.php"+"?API_KEY="+environment.api_key}`;
+    private baseUrl = `${environment.api+"image"+"?API_KEY="+environment.api_key}`;
 
     private baseUrlDelete = `${environment.api+"deleteImage.php"+"?API_KEY="+environment.api_key}`;
 
@@ -19,7 +19,7 @@ export class FileUploadService {
         let formData: any = new FormData();
         formData.append("image", file);
 
-        return this.http.post(this.baseUrlUpload, formData, {
+        return this.http.post(this.baseUrl, formData, {
             reportProgress: true,
             observe: "events",
         });

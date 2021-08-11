@@ -6,7 +6,8 @@
 <app-add-or-edit-product-modal
     *ngIf="productModalOpen"
     [product] = "selectedProduct"
-    (finish) = "handleFinish($event)">
+    (finish) = "handleFinish($event)"
+    >
 </app-add-or-edit-product-modal>
 <!-- End Modal -->
 <clr-datagrid class="show-product">

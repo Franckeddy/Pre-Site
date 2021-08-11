@@ -9,8 +9,8 @@ import { Response } from "src/app/models/response";
 })
 export class HomeComponent implements OnInit {
 
-    products: any;
-    productSub: Subscription = new Subscription;
+    products;
+    productSub;
 
     constructor(private ProductsServices: ProductsService) {}
 
