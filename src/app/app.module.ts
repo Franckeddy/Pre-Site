@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -11,6 +11,9 @@ import { ClarityModule } from "@clr/angular";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ShowProductComponent } from "./components/show-product/show-product.component";
 import { ReactiveFormsModule } from "@angular/forms";
+
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { cloudIcon, ClarityIcons } from "@cds/core/icon";
 import "@cds/core/icon/register.js";
@@ -45,6 +48,15 @@ import "@cds/core/toggle/register.js";
         BrowserAnimationsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        // ngx-translate and the loader module
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -55,4 +67,9 @@ export class AppModule {
     constructor() {
         ClarityIcons.addIcons(cloudIcon);
     }
+}
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+    return new TranslateHttpLoader(http);
 }
