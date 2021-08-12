@@ -1,7 +1,6 @@
 {
     "ui": {
-        "store": "HOmniStore",
-        "admin": "Administration",
+        "admin": "Administration {{name}}",
         "of": "de",
         "id": "Id",
         "image": "Image",

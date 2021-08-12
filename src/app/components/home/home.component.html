@@ -1,8 +1,16 @@
 <clr-main-container>
     <clr-header>
         <div class="header-nav" [clr-nav-level]="1">
-            <h1>{{ 'ui.admin' | translate }} - {{ 'ui.store' | translate }}</h1>
+            <h1>{{ 'ui.admin' | translate:{'name':'HomniStore'} }}</h1>
         </div>
+        <cds-select control-width="shrink" style="position: absolute; right: 30px;margin-top: 25px; transform: translateY(-50%);">
+            <label>Lang</label>
+            <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+                <option *ngFor="let language of translate.getLangs()" [value]="language" [selected]="language === translate.currentLang">
+                    {{ language | uppercase }}
+                </option>
+            </select>
+        </cds-select>
     </clr-header>
     <div class="content-container">
         <main class="content-area">
