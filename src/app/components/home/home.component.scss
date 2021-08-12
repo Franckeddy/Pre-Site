@@ -5,11 +5,11 @@
   }
 }
 
-header, .header {
+.header {
   background-color: var(--clr-sidenav-link-active-bg-color, #d8e3e9);
   border: .05rem solid #ccc;
 }
 
 cds-select option {
-  padding: var(--cds-global-space-4,calc((6 / var(--cds-global-base,20)) * 2rem));
+  padding: var(--cds-global-space-4, calc((6 / var(--cds-global-base,20)) * 2rem));
 }
