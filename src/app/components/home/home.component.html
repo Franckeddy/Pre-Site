@@ -1,7 +1,7 @@
 <clr-main-container>
     <clr-header>
         <div class="header-nav" [clr-nav-level]="1">
-            <h1>Admin OmniStore</h1>
+            <h1>{{ 'ui.admin' | translate }} - {{ 'ui.store' | translate }}</h1>
         </div>
     </clr-header>
     <div class="content-container">
@@ -11,16 +11,16 @@
         <nav class="sidenav" [clr-nav-level]="2">
             <section class="sidenav-content">
                 <a href="" class="nav-link active">
-                    Products
+                    {{ 'ui.products' | translate }}
                 </a>
                 <a href="" class="nav-link">
-                    Orders
+                    {{ 'ui.orders' | translate }}
                 </a>
                 <a href="" class="nav-link">
-                    Customers
+                    {{ 'ui.customers' | translate }}
                 </a>
                 <a href="" class="nav-link">
-                    Procuct Category
+                    {{ 'ui.category' | translate }}
                 </a>
             </section>
         </nav>
