@@ -1,6 +1,6 @@
-<h1>List of Product</h1>
+<h1>{{ 'product.list' | translate }}</h1>
 <button class="btn btn-outline btn-sm" (click)="addProduct()">
-    Add Product
+    {{ 'ui.add' | translate }}
 </button>
 <!-- Modal -->
 <app-add-or-edit-product-modal
@@ -11,16 +11,16 @@
 </app-add-or-edit-product-modal>
 <!-- End Modal -->
 <clr-datagrid class="show-product">
-    <clr-dg-column class="show-product-id">ID</clr-dg-column>
-    <clr-dg-column class="show-product-name">Name</clr-dg-column>
-    <clr-dg-column class="show-product-description">Description</clr-dg-column>
-    <clr-dg-column class="show-product-price">Price</clr-dg-column>
-    <clr-dg-column class="show-product-stock">Stock</clr-dg-column>
-    <clr-dg-column class="show-product-image">Image</clr-dg-column>
+    <clr-dg-column class="show-product-id">{{ 'ui.id' | translate }}</clr-dg-column>
+    <clr-dg-column class="show-product-name">{{ 'product.name' | translate }}</clr-dg-column>
+    <clr-dg-column class="show-product-description">{{ 'product.description' | translate }}</clr-dg-column>
+    <clr-dg-column class="show-product-price">{{ 'product.price' | translate }}</clr-dg-column>
+    <clr-dg-column class="show-product-stock">{{ 'product.stock' | translate }}</clr-dg-column>
+    <clr-dg-column class="show-product-image">{{ 'product.image' | translate }}</clr-dg-column>
     <clr-dg-row *clrDgItems="let product of products">
         <clr-dg-action-overflow>
-            <button class="action-item" (click)="onEdit(product)">Edit</button>
-            <button class="action-item" (click)="onDelete(product)">Delete</button>
+            <button class="action-item" (click)="onEdit(product)">{{ 'ui.edit' | translate }}</button>
+            <button class="action-item" (click)="onDelete(product)">{{ 'ui.delete' | translate }}</button>
         </clr-dg-action-overflow>
         <clr-dg-cell>
             {{product.idProduct}}
@@ -35,7 +35,7 @@
             {{product.price}}
         </clr-dg-cell>
         <clr-dg-cell>
-            {{product.stock}} in stock
+            {{product.stock}} {{ 'ui.in_stock' | translate }}
         </clr-dg-cell>
         <clr-dg-cell>
             <img [src]="baseUrlImage+product.image" [alt]="product.name" class="show-image"/>
@@ -43,8 +43,8 @@
     </clr-dg-row>
     <clr-dg-footer>
         <clr-dg-pagination #pagination [clrDgPageSize]="10">
-            <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Products per page</clr-dg-page-size>
-            {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} producst
+            <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">{{ 'ui.product_per_page' | translate }}</clr-dg-page-size>
+            {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} {{ 'ui.of' | translate }} {{pagination.totalItems}} {{ 'ui.product' | translate }}
         </clr-dg-pagination>
     </clr-dg-footer>
 </clr-datagrid>
