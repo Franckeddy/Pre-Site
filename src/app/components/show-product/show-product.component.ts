@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 import { ProductsService } from 'src/app/services/products.service';
-import { environment } from "src/environments/environment"
+import { environment } from "src/environments/environment";
 import { HttpEventType } from '@angular/common/http';
 
 @Component({
@@ -40,7 +40,6 @@ export class ShowProductComponent implements OnInit {
         let product = event.product ? event.product : null;
         this.file = event.file ? event.file : null;
         if(product) {
-            console.log(product);
             if(this.selectedProduct) {
             } else {
                 this.productsService.addProduct(product).subscribe(
@@ -51,13 +50,11 @@ export class ShowProductComponent implements OnInit {
                                     (event: HttpEvent<any>) => {
                                         switch (event.type) {
                                             case HttpEventType.Sent:
-                                            console.log("Success de la request");
                                                 break;
                                             case HttpEventType.UploadProgress:
                                                 this.progress = Math.round(event.loaded / event.total * 100);
                                                 break;
                                             case HttpEventType.Response:
-                                                console.log(event.body);
                                                 setTimeout(() => {
                                                     this.progress = 0;
                                                 }, 1000);
