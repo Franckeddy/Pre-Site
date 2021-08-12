@@ -1,5 +1,5 @@
 import { CategoriesService } from './../../services/categories.service';
-import { Component, Input, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/product';
 import { Category } from 'src/app/models/category';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
     templateUrl: './add-or-edit-product-modal.component.html',
     styleUrls: ['./add-or-edit-product-modal.component.scss']
 })
-export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
+export class AddOrEditProductModalComponent implements OnInit, OnDestroy, OnChanges {
 
     @Input() product: Product;
     @Output() finish = new EventEmitter();
@@ -44,6 +44,9 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
     }
 
     get isIllustrationInvalid(): boolean {
+        if (this.product) {
+            return false;
+        }
         return this.productForm.get('illustration').invalid;
     }
 
@@ -60,6 +63,8 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
         };
         if (this.file) {
             product.image = this.file.name;
+        } else {
+            product.image = this.product.oldImage;
         }
         this.finish.emit({product: product, file: this.file ? this.file : null});
         this.close();
@@ -74,6 +79,19 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
         this.file = event.target.files[0];
     }
 
+    updateForm (product: Product) {
+        this.productForm.patchValue({
+            productInfos:{
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                stock: product.stock,
+            }
+        });
+        product.oldImage = product.image;
+        this.selectCategory(product.Category);
+    }
+
     ngOnInit(): void {
         this.categorySub = this.categoriesService.getCategory().subscribe(
             (response) => {
@@ -84,6 +102,12 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.categorySub.unsubscribe();
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (this.product) {
+            this.updateForm(this.product);
+        }
     }
 
 }
