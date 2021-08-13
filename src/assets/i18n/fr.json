@@ -1,41 +1,52 @@
 {
     "ui": {
-        "admin": "Administration {{name}}",
-        "of": "de",
-        "id": "Id",
-        "image": "Image",
-        "product": "Produit",
-        "add": "Ajouter un produit",
-        "price": "Prix",
-        "stock": "Stock",
-        "products": "Produits",
-        "orders": "Commandes",
-        "customers": "Clients",
-        "category": "Catégories",
-        "cancel": "Annuler",
-        "back": "Retour",
-        "next": "Suivant",
-        "finish": "Valider",
-        "edit": "Editer",
-        "delete": "Supprimer",
-        "product_per_page": "Produit par page",
-        "in_stock": "En stock",
-        "step_1": "Etape - 1",
-        "step_2": "Etape - 2",
-        "step_3": "Etape - 3"
+        "admin": {
+            "admin": "Administration {{name}}",
+            "lang": "Langue",
+            "of": "de",
+            "id": "Id",
+            "image": "Image",
+            "product": "Produit",
+            "add": "Ajouter un produit",
+            "price": "Prix",
+            "stock": "Stock",
+            "products": "Produits",
+            "orders": "Commandes",
+            "customers": "Clients",
+            "category": "Catégories",
+            "cancel": "Annuler",
+            "back": "Retour",
+            "next": "Suivant",
+            "finish": "Valider",
+            "edit": "Editer",
+            "confirm": "Confirmer",
+            "confirm_delete": "Confirmer la suppression.",
+            "delete": "Supprimer",
+            "product_per_page": "Produit par page",
+            "in_stock": "En stock",
+            "step_1": "Etape - 1",
+            "step_2": "Etape - 2",
+            "step_3": "Etape - 3"
+        },
+        "shop": {
+        }
     },
-    "product": {
-        "name": "Nom",
-        "list": "Liste des Produits",
-        "description": "Description",
-        "image": "Image",
-        "price": "Prix",
-        "stock": "Stock",
-        "category": "Catégorie du produit",
-        "informations": "Détails"
+    "admin": {
+        "product": {
+            "name": "Nom",
+            "list": "Liste des Produits",
+            "description": "Description",
+            "image": "Image",
+            "price": "Prix",
+            "stock": "Stock",
+            "category": "Catégorie du produit",
+            "informations": "Détails"
+        },
+        "category": {
+            "name": "Nom de la catégorie",
+            "select": "Selectionner une catégorie"
+        }
     },
-    "category": {
-        "name": "Nom de la catégorie",
-        "select": "Selectionner une catégorie"
+    "shop": {
     }
 }

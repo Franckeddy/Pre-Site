@@ -1,40 +1,51 @@
 {
     "ui": {
-        "admin": "Admin {{name}}",
-        "of": "of",
-        "id": "Id",
-        "image": "Image",
-        "add": "Add product",
-        "price": "Price",
-        "stock": "Stock",
-        "products": "Products",
-        "orders": "Orders",
-        "customers": "Customers",
-        "category": "Catégories",
-        "cancel": "Cancel",
-        "back": "Back",
-        "next": "Next",
-        "finish": "Validate",
-        "edit": "Edit",
-        "delete": "Delete",
-        "product_per_page": "Product per page",
-        "in_stock": "In stock",
-        "step_1": "Step - 1",
-        "step_2": "Step - 2",
-        "step_3": "Step - 3"
+        "admin": {
+            "admin": "Admin {{name}}",
+            "lang": "Language",
+            "of": "of",
+            "id": "Id",
+            "image": "Image",
+            "add": "Add product",
+            "price": "Price",
+            "stock": "Stock",
+            "products": "Products",
+            "orders": "Orders",
+            "customers": "Customers",
+            "category": "Catégories",
+            "cancel": "Cancel",
+            "back": "Back",
+            "next": "Next",
+            "finish": "Validate",
+            "edit": "Edit",
+            "confirm": "Confirm",
+            "confirm_delete": "Confirm suppression.",
+            "delete": "Delete",
+            "product_per_page": "Product per page",
+            "in_stock": "In stock",
+            "step_1": "Step - 1",
+            "step_2": "Step - 2",
+            "step_3": "Step - 3"
+        },
+        "shop": {
+        }
     },
-    "product": {
-        "name": "Name",
-        "list": "Product list",
-        "description": "Description",
-        "image": "Image",
-        "price": "Price",
-        "stock": "Stock",
-        "category": "Produit category",
-        "informations": "Product informations"
+    "admin": {
+        "product": {
+            "name": "Name",
+            "list": "Product list",
+            "description": "Description",
+            "image": "Image",
+            "price": "Price",
+            "stock": "Stock",
+            "category": "Produit category",
+            "informations": "Product informations"
+        },
+        "category": {
+            "name": "Catégory name",
+            "select": "Select Catégory"
+        }
     },
-    "category": {
-        "name": "Catégory name",
-        "select": "Select Catégory"
+    "shop": {
     }
 }
