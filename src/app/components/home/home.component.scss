@@ -14,7 +14,7 @@ clr-header {
 
     select {
       option {
-        padding: var(--cds-global-space-4, calc((6 / var(--cds-global-base,20)) * 2rem));
+        padding: var(--cds-global-space-4, calc((6 / var(--cds-global-base, 20)) * 2rem));
       }
     }
   }

@@ -176,7 +176,7 @@ export class ShowProductComponent implements OnInit {
                     console.log(data.message);
                 }
             }
-        )
+        );
         this.handleCancelDelete();
     }
 

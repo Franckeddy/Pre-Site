@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
                 // TODO delete console.log
                 console.log(error);
             }
-        )
+        );
     }
 
     useLanguage(language: string): void {
