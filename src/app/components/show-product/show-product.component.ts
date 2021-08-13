@@ -142,7 +142,7 @@ export class ShowProductComponent implements OnInit {
 
     updateProducts(product) {
         // update frontend
-        const index = this.products.findIndex(p => p.idProduct === product.idProduct);
+        const index = this.products.findIndex((p) => p.idProduct === product.idProduct);
         product.Category = product.category;
         this.products = [
             ...this.products.slice(0,index),
@@ -158,18 +158,18 @@ export class ShowProductComponent implements OnInit {
     handleConfirmDelete(){
             this.productService.deleteProduct(this.productToBeDelete).subscribe(
             (data: Response) => {
-                if(data.status == 200){
+                if(data.status === 200){
                     // Delete Product Image
                     this.fileService.deleteImage(this.productToBeDelete.image).subscribe(
                         (data: Response) => {
                             // TODO delete console.log
                             console.log(data);
                         }
-                    )
+                    );
                     // TODO delete console.log
                     console.log(data);
                     // Update Frontend
-                    const index = this.products.findIndex(p => p.idProduct == this.productToBeDelete.idProduct);
+                    const index = this.products.findIndex((p) => p.idProduct === this.productToBeDelete.idProduct);
                     this.products.splice(index,1);
                 }else{
                     // TODO delete console.log
