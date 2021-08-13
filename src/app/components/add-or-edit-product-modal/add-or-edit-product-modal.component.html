@@ -2,14 +2,14 @@
 
     <clr-wizard-title>{{ product ? 'Edit Product' : 'Add Product' }}</clr-wizard-title>
 
-    <clr-wizard-button [type]="'cancel'">{{ 'ui.cancel' | translate }}</clr-wizard-button>
-    <clr-wizard-button [type]="'previous'">{{ 'ui.back' | translate }}</clr-wizard-button>
-    <clr-wizard-button [type]="'next'">{{ 'ui.next' | translate }}</clr-wizard-button>
-    <clr-wizard-button [type]="'finish'" (click)="handleFinish()">{{ 'ui.finish' | translate }}</clr-wizard-button>
+    <clr-wizard-button [type]="'cancel'">{{ 'ui.admin.cancel' | translate }}</clr-wizard-button>
+    <clr-wizard-button [type]="'previous'">{{ 'ui.admin.back' | translate }}</clr-wizard-button>
+    <clr-wizard-button [type]="'next'">{{ 'ui.admin.next' | translate }}</clr-wizard-button>
+    <clr-wizard-button [type]="'finish'" (click)="handleFinish()">{{ 'ui.admin.finish' | translate }}</clr-wizard-button>
 
     <clr-wizard-page>
-        <ng-template clrPageTitle>{{ 'category.select' | translate }}</ng-template>
-        <ng-template clrPageNavTitle>{{ 'ui.step_1' | translate }}</ng-template>
+        <ng-template clrPageTitle>{{ 'admin.category.select' | translate }}</ng-template>
+        <ng-template clrPageNavTitle>{{ 'ui.admin.step_1' | translate }}</ng-template>
         <div class="clr-row category">
             <div class="clr-col-md-6" *ngFor="let category of categories">
                 <a href="javascript:void(0)" class="card clickable" (click)="selectCategory(category.idCategory)" [ngClass]="{'active': category.idCategory === idCategory}">
@@ -26,45 +26,45 @@
 
     <form [formGroup]='productForm'>
         <clr-wizard-page>
-            <ng-template clrPageTitle>{{ 'product.informations' | translate }}</ng-template>
-            <ng-template clrPageNavTitle>{{ 'ui.step_2' | translate }}</ng-template>
+            <ng-template clrPageTitle>{{ 'admin.product.informations' | translate }}</ng-template>
+            <ng-template clrPageNavTitle>{{ 'ui.admin.step_2' | translate }}</ng-template>
             <div formGroupName="productInfos">
                 <clr-input-container>
-                    <label for="name">{{ 'product.name' | translate }}</label>
+                    <label for="name">{{ 'admin.product.name' | translate }}</label>
                     <input id="name" clrInput placeholder="Product name ..." name="name" formControlName="name" />
                 </clr-input-container>
                 <clr-textarea-container>
-                    <label for="description">{{ 'product.description' | translate }}</label>
+                    <label for="description">{{ 'admin.product.description' | translate }}</label>
                     <textarea id="description" clrTextarea formControlName="description" name="description"></textarea>
                 </clr-textarea-container>
                 <clr-input-container>
-                    <label for="price">{{ 'ui.price' | translate }}</label>
+                    <label for="price">{{ 'ui.admin.price' | translate }}</label>
                     <input id="price" clrInput placeholder="Price ..." name="price" formControlName="price" />
                 </clr-input-container>
                 <clr-input-container>
-                    <label for="stock">{{ 'ui.stock' | translate }}</label>
+                    <label for="stock">{{ 'ui.admin.stock' | translate }}</label>
                     <input id="stock" clrInput placeholder="Stock ..." name="stock" formControlName="stock" />
                 </clr-input-container>
             </div>
             <ng-template clrPageButtons>
-                <clr-wizard-button [type]="'cancel'" (click)="handleCancel()">{{ 'ui.cancel' | translate }}</clr-wizard-button>
-                <clr-wizard-button [type]="'previous'">{{ 'ui.back' | translate }}</clr-wizard-button>
-                <clr-wizard-button [type]="'next'" [clrWizardButtonDisabled]="isProductInfosInvalid">{{ 'ui.next' | translate }}</clr-wizard-button>
+                <clr-wizard-button [type]="'cancel'" (click)="handleCancel()">{{ 'ui.admin.cancel' | translate }}</clr-wizard-button>
+                <clr-wizard-button [type]="'previous'">{{ 'ui.admin.back' | translate }}</clr-wizard-button>
+                <clr-wizard-button [type]="'next'" [clrWizardButtonDisabled]="isProductInfosInvalid">{{ 'ui.admin.next' | translate }}</clr-wizard-button>
             </ng-template>
         </clr-wizard-page>
         <clr-wizard-page>
-            <ng-template clrPageTitle>{{ 'ui.image' | translate }}</ng-template>
-            <ng-template clrPageNavTitle>{{ 'ui.step_3' | translate }}</ng-template>
+            <ng-template clrPageTitle>{{ 'ui.admin.image' | translate }}</ng-template>
+            <ng-template clrPageNavTitle>{{ 'ui.admin.step_3' | translate }}</ng-template>
             <div formGroupName="illustration">
                 <clr-input-container>
-                    <label for="image">{{ 'ui.image' | translate }}</label>
+                    <label for="image">{{ 'ui.admin.image' | translate }}</label>
                     <input id="image" (change)="detecteFiles($event)" accept="image/*" clrInput type="file" name="image" formControlName="image" />
                 </clr-input-container>
             </div>
             <ng-template clrPageButtons>
-                <clr-wizard-button [type]="'cancel'" (click)="handleCancel()">{{ 'ui.cancel' | translate }}</clr-wizard-button>
-                <clr-wizard-button [type]="'previous'">{{ 'ui.back' | translate }}</clr-wizard-button>
-                <clr-wizard-button [type]="'Finish'" [clrWizardButtonDisabled]="isIllustrationInvalid" (click)="handleFinish()">{{ 'ui.finish' | translate }}</clr-wizard-button>
+                <clr-wizard-button [type]="'cancel'" (click)="handleCancel()">{{ 'ui.admin.cancel' | translate }}</clr-wizard-button>
+                <clr-wizard-button [type]="'previous'">{{ 'ui.admin.back' | translate }}</clr-wizard-button>
+                <clr-wizard-button [type]="'Finish'" [clrWizardButtonDisabled]="isIllustrationInvalid" (click)="handleFinish()">{{ 'ui.admin.finish' | translate }}</clr-wizard-button>
             </ng-template>
         </clr-wizard-page>
     </form>

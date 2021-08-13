@@ -26,9 +26,7 @@ export class FileUploadService {
     }
 
     deleteImage(name: string): Observable<any> {
-        let formData: any = new FormData();
-        formData.append("name", name);
-
-        return this.http.delete(this.baseUrlDelete, formData);
+        const url = this.baseUrl+"&name="+name;
+        return this.http.delete(url);
     }
 }

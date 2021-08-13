@@ -1,15 +1,27 @@
-.header-nav {
-  h1:not([cds-text]) {
-    font-weight: bold;
-    margin: 0 0 0 30px;
+clr-header {
+  .header-nav {
+
+    h1:not([cds-text]) {
+      font-weight: bold;
+      margin: 0 0 0 30px;
+    }
+  }
+
+  cds-select {
+    position: absolute;
+    right: 30px;
+    margin-top: 25px;
+    transform: translateY(-50%);
+
+    select {
+      option {
+        padding: var(--cds-global-space-4, calc((6 / var(--cds-global-base,20)) * 2rem));
+      }
+    }
   }
 }
 
 .header {
   background-color: var(--clr-sidenav-link-active-bg-color, #d8e3e9);
   border: .05rem solid #ccc;
-}
-
-cds-select option {
-  padding: var(--cds-global-space-4, calc((6 / var(--cds-global-base,20)) * 2rem));
 }

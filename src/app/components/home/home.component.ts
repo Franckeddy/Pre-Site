@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { ProductsService } from "src/app/services/products.service";
+import { ProductService } from "src/app/services/products.service";
 import { Response } from "src/app/models/response";
 import { TranslateService } from '@ngx-translate/core';
 
@@ -14,17 +14,19 @@ export class HomeComponent implements OnInit {
     products;
     productSub;
 
-    constructor(private ProductsServices: ProductsService, public translate: TranslateService) {
+    constructor(private ProductService: ProductService, public translate: TranslateService) {
         translate.addLangs(['fr', 'en']);
         translate.setDefaultLang('fr');
     }
 
     ngOnInit(): void {
-        this.productSub = this.ProductsServices.getProducts().subscribe (
+        this.productSub = this.ProductService.getProducts().subscribe (
             (response: Response) => {
                 this.products = response.result;
             },
             (error) => {
+                // TODO delete console.log
+                console.log(error);
             }
         )
     }

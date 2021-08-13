@@ -1,10 +1,10 @@
 <clr-main-container>
     <clr-header>
         <div class="header-nav" [clr-nav-level]="1">
-            <h1>{{ 'ui.admin' | translate:{'name':'HomniStore'} }}</h1>
+            <h1>{{ 'ui.admin.admin' | translate:{'name':'HomniStore'} }}</h1>
         </div>
-        <cds-select control-width="shrink" style="position: absolute; right: 30px;margin-top: 25px; transform: translateY(-50%);">
-            <label>Lang</label>
+        <cds-select control-width="shrink">
+            <label>{{ 'ui.admin.lang' | translate }}</label>
             <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
                 <option *ngFor="let language of translate.getLangs()" [value]="language" [selected]="language === translate.currentLang">
                     {{ language | uppercase }}
@@ -19,16 +19,16 @@
         <nav class="sidenav" [clr-nav-level]="2">
             <section class="sidenav-content">
                 <a href="" class="nav-link active">
-                    {{ 'ui.products' | translate }}
+                    {{ 'ui.admin.products' | translate }}
                 </a>
                 <a href="" class="nav-link">
-                    {{ 'ui.orders' | translate }}
+                    {{ 'ui.admin.orders' | translate }}
                 </a>
                 <a href="" class="nav-link">
-                    {{ 'ui.customers' | translate }}
+                    {{ 'ui.admin.customers' | translate }}
                 </a>
                 <a href="" class="nav-link">
-                    {{ 'ui.category' | translate }}
+                    {{ 'ui.admin.category' | translate }}
                 </a>
             </section>
         </nav>

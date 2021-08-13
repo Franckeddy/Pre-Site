@@ -1,1 +1,10 @@
-<p>delete-product-modal works!</p>
+<clr-modal [clrModalOpen]="true">
+    <h3 class="modal-title">{{ 'ui.admin.delete' | translate }}</h3>
+    <div class="modal-body">
+        <p>{{ 'ui.admin.confirm_delete' | translate }}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="cancelDelete()">{{ 'ui.admin.cancel' | translate }}</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()">{{ 'ui.admin.confirm' | translate }}</button>
+    </div>
+</clr-modal>

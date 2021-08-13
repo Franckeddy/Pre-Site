@@ -8,10 +8,10 @@ import { Product } from "../models/product";
     providedIn: "root"
 })
 
-export class ProductsService {
+export class ProductService {
 
-    baseUrl = `${environment.api+"products"+"?API_KEY="+environment.api_key}`;
-    baseUrlUpate = `${environment.api+"updateProducts"+"?API_KEY="+environment.api_key}`;
+    private baseUrl = `${environment.api+"products"+"?API_KEY="+environment.api_key}`;
+    private baseUrlUpdate = `${environment.api+'updateProducts'+'?API_KEY='+environment.api_key}`;
 
     constructor(private http: HttpClient) { }
 
@@ -32,15 +32,20 @@ export class ProductsService {
     }
 
     editProduct(product: Product) : Observable<Response> {
-        const url = this.baseUrlUpate+this.constructUrlParams(product);
+        const url = this.baseUrlUpdate+this.constructURLParams(product);
         return this.http.get<Response>(url);
     }
 
-    constructUrlParams = (object) => {
+    deleteProduct(product: Product): Observable<Response> {
+        const url = this.baseUrl+"&id="+product.idProduct;
+        return this.http.delete<Response>(url);
+    }
+
+    constructURLParams = (object) => {
         let result = '';
         for (const property in object) {
             result += `&${property}=${object[property]}`;
         }
         return result;
-    };
+    }
 }

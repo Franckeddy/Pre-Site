@@ -1,3 +1,4 @@
+import { ProductService } from './../../services/products.service';
 import { CategoriesService } from './../../services/categories.service';
 import { Component, Input, OnDestroy, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,7 +22,7 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy, OnChan
     idCategory: 1;
     file!: File;
 
-    constructor(public fb: FormBuilder, private categoriesService:CategoriesService ) {
+    constructor(public fb: FormBuilder, private categoriesService:CategoriesService) {
         this.productForm = fb.group({
                 productInfos: fb.group({
                     name: ['',Validators.required],
@@ -59,8 +60,12 @@ export class AddOrEditProductModalComponent implements OnInit, OnDestroy, OnChan
         const product = {
             ...this.productForm.get('productInfos').value,
             ...this.productForm.get('illustration').value,
-            Category: this.idCategory
+            Category: this.idCategory,
+            oldImage: null,
         };
+        if (this.product) {
+            product.oldImage = this.product.oldImage;
+        }
         if (this.file) {
             product.image = this.file.name;
         } else {
