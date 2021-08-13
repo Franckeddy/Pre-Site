@@ -33,6 +33,11 @@ import "@cds/core/select/register.js";
 import "@cds/core/textarea/register.js";
 import "@cds/core/time/register.js";
 import "@cds/core/toggle/register.js";
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+    return new TranslateHttpLoader(http);
+}
 @NgModule({
     declarations: [
         AppComponent,
@@ -67,9 +72,4 @@ export class AppModule {
     constructor() {
         ClarityIcons.addIcons(cloudIcon);
     }
-}
-
-// required for AOT compilation
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-    return new TranslateHttpLoader(http);
 }
