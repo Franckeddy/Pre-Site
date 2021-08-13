@@ -1,25 +1,40 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from "./home.component";
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { HttpLoaderFactory } from "src/app/app.module";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("HomeComponent", () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+    let component: HomeComponent;
+    let fixture: ComponentFixture<HomeComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
-    })
-    .compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports:
+                [
+                    HttpClientModule,
+                    TranslateModule.forRoot({
+                        loader: {
+                            provide: TranslateLoader,
+                            useFactory: HttpLoaderFactory,
+                            deps: [HttpClient]
+                        }
+                    }),
+                ],
+            declarations: [ HomeComponent ],
+            schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+        })
+        .compileComponents();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(HomeComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
+    it("should create", () => {
+        expect(component).toBeTruthy();
+    });
 });
