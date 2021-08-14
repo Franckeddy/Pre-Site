@@ -10,7 +10,7 @@ import { AddOrEditProductModalComponent } from "./components/add-or-edit-product
 import { ClarityModule } from "@clr/angular";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ShowProductComponent } from "./components/show-product/show-product.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -34,10 +34,6 @@ import "@cds/core/textarea/register.js";
 import "@cds/core/time/register.js";
 import "@cds/core/toggle/register.js";
 
-// required for AOT compilation
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-    return new TranslateHttpLoader(http);
-}
 @NgModule({
     declarations: [
         AppComponent,
@@ -52,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         ClarityModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        FormsModule,
         ReactiveFormsModule,
         // ngx-translate and the loader module
         HttpClientModule,
@@ -72,4 +69,9 @@ export class AppModule {
     constructor() {
         ClarityIcons.addIcons(cloudIcon);
     }
+}
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+    return new TranslateHttpLoader(http);
 }
