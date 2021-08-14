@@ -156,7 +156,7 @@ export class ShowProductComponent implements OnInit {
     }
 
     handleConfirmDelete(){
-            this.productService.deleteProduct(this.productToBeDelete).subscribe(
+        this.productService.deleteProduct(this.productToBeDelete).subscribe(
             (data: Response) => {
                 if(data.status === 200){
                     // Delete Product Image
