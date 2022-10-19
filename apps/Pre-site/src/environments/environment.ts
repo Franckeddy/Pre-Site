@@ -1,10 +1,7 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
     production: false,
     api: "http://localhost:8888/e-commerce/backend/api/",
+    //api: "http://localhost:8000/api/", //symfony
     api_key: "adsffsdfds6b-6727-46f4-8bee-2c6ce6293e41",
     api_image: "http://localhost:8888/e-commerce/backend/images/products/",
 };
@@ -16,4 +13,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

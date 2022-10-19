@@ -24,7 +24,8 @@ export class ShowProductComponent implements OnInit {
     progress = 0;
     baseUrlImage = `${environment.api_image}`;
 
-    constructor(private productService: ProductService,private fileService: FileUploadService) { }
+    constructor(private productService: ProductService,
+                private fileService: FileUploadService) { }
 
     ngOnInit(): void { }
 
@@ -43,12 +44,14 @@ export class ShowProductComponent implements OnInit {
         this.productModalOpen = true;
     }
 
-    handleFinish(event) {
-        if (event && event.product) {
+    handleFinish(event: { product: any; file: File; }) {
+        if (event.product || event.file) {
             let product = event.product ? event.product : null;
             this.file = event.file ? event.file : null;
             // TODO delete console.log
             console.log(product);
+            console.log(event);
+            console.log(this.file); // <-------------------
             if(this.selectedProduct) {
                 // Edit product
                 product.idProduct = this.selectedProduct.idProduct;
@@ -61,9 +64,9 @@ export class ShowProductComponent implements OnInit {
         this.productModalOpen = false;
     }
 
-    uploadImage(event) {
+    uploadImage(event: HttpEvent<any>) {
         return new Promise(
-            (resolve, reject) => {
+            (resolve) => {
                 switch (event.type) {
                     case HttpEventType.Sent:
                         // TODO delete console.log
@@ -89,7 +92,7 @@ export class ShowProductComponent implements OnInit {
 
     addProductToServer(product) {
         this.productService.addProduct(product).subscribe(
-            (data) => {
+            (data: Response) => {
                 if (data.status === 200) {
                     if (this.file) {
                         this.fileService.uploadImage(this.file).subscribe(
@@ -109,7 +112,7 @@ export class ShowProductComponent implements OnInit {
         );
     }
 
-    editProductToServer(product) {
+    editProductToServer(product: Product) {
         this.productService.editProduct(product).subscribe(
             (data: Response) => {
                 if (data.status === 200) {
@@ -135,6 +138,8 @@ export class ShowProductComponent implements OnInit {
                 } else {
                     // TODO delete console.log
                     console.log(data.message);
+                    console.log(product);
+                    console.log(data);
                 }
             }
         );
@@ -162,18 +167,12 @@ export class ShowProductComponent implements OnInit {
                     // Delete Product Image
                     this.fileService.deleteImage(this.productToBeDelete.image).subscribe(
                         (data: Response) => {
-                            // TODO delete console.log
-                            console.log(data);
                         }
                     );
-                    // TODO delete console.log
-                    console.log(data);
                     // Update Frontend
-                    const index = this.products.findIndex((p) => p.idProduct === this.productToBeDelete.idProduct);
+                    const index = this.products.findIndex(p => p.idProduct === this.productToBeDelete.idProduct);
                     this.products.splice(index,1);
                 }else{
-                    // TODO delete console.log
-                    console.log(data.message);
                 }
             }
         );

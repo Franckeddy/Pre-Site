@@ -1,7 +1,7 @@
 export interface Response {
     status: number,
     message: string,
-    result,
-    args,
+    result: any,
+    args: any,
     time: string,
 }

@@ -11,8 +11,6 @@ export class FileUploadService {
 
     private baseUrl = `${environment.api+"image"+"?API_KEY="+environment.api_key}`;
 
-    private baseUrlDelete = `${environment.api+"deleteImage.php"+"?API_KEY="+environment.api_key}`;
-
     constructor(private http: HttpClient) { }
 
     uploadImage(file: File): Observable<any> {

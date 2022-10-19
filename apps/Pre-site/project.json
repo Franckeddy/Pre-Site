@@ -1,0 +1,106 @@
+{
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    },
+    "@schematics/angular:application": {
+      "strict": true
+    }
+  },
+  "sourceRoot": "apps/Pre-site/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/Pre-site",
+        "index": "apps/Pre-site/src/index.html",
+        "main": "apps/Pre-site/src/main.ts",
+        "polyfills": "apps/Pre-site/src/polyfills.ts",
+        "tsConfig": "apps/Pre-site/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/Pre-site/src/favicon.ico",
+          "apps/Pre-site/src/assets"
+        ],
+        "styles": [
+          "node_modules/@clr/icons/clr-icons.min.css",
+          "node_modules/@clr/ui/clr-ui.min.css",
+          "apps/Pre-site/src/styles.scss"
+        ],
+        "scripts": [
+          "node_modules/@clr/icons/clr-icons.min.js"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/Pre-site/src/environments/environment.ts",
+              "with": "apps/Pre-site/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "Pre-site:build:production"
+        },
+        "development": {
+          "browserTarget": "Pre-site:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "Pre-site:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/Pre-site/src/test.ts",
+        "polyfills": "apps/Pre-site/src/polyfills.ts",
+        "tsConfig": "apps/Pre-site/tsconfig.spec.json",
+        "karmaConfig": "apps/Pre-site/karma.conf.js",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/Pre-site/src/favicon.ico",
+          "apps/Pre-site/src/assets"
+        ],
+        "styles": [
+          "apps/Pre-site/src/styles.scss"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}
