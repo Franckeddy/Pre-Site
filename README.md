@@ -1,6 +1,6 @@
 # PreSite
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/?branch=develop)  [![Build Status](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/build-status/develop) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e88967a6e3e641c985616fa8eab25053)](https://www.codacy.com/gh/Franckeddy/Pre-Site/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Franckeddy/Pre-Site&amp;utm_campaign=Badge_Grade) [![CircleCI](https://circleci.com/gh/Franckeddy/Pre-Site/tree/develop.svg?style=svg)](https://circleci.com/gh/Franckeddy/Pre-Site/tree/develop)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/?branch=develop)  [![Build Status](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/Franckeddy/Pre-Site/build-status/develop) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e88967a6e3e641c985616fa8eab25053)](https://www.codacy.com/gh/Franckeddy/Pre-Site/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Franckeddy/Pre-Site&amp;utm_campaign=Badge_Grade)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
 
